@@ -17,16 +17,16 @@ public class RenderEvent {
 	public void onPreRenderGame(RenderGameOverlayEvent.Pre event) {
 		if(enabled) {
 			if (fakePlayer == null) {
-				fakePlayer = new FakeClientPlayer(Minecraft.getMinecraft().thePlayer.worldObj);
+				fakePlayer = new FakeClientPlayer(Minecraft.getMinecraft().player.world);
 			}
 			
 			// set position and angles; note that posY is not altered but camera still correct:
-			fakePlayer.setLocationAndAngles(x, y, z, Minecraft.getMinecraft().thePlayer.rotationYaw, Minecraft.getMinecraft().thePlayer.rotationPitch);
+			fakePlayer.setLocationAndAngles(x, y, z, Minecraft.getMinecraft().player.rotationYaw, Minecraft.getMinecraft().player.rotationPitch);
 
 			// set previous values to prevent camera from freaking out:
 			fakePlayer.prevRotationPitch = prevpitch;
 			fakePlayer.prevRotationYaw = prevyaw;
-			fakePlayer.rotationYawHead = Minecraft.getMinecraft().thePlayer.rotationYawHead;
+			fakePlayer.rotationYawHead = Minecraft.getMinecraft().player.rotationYawHead;
 			fakePlayer.prevPosX = prevx;
 			fakePlayer.prevPosY = prevy;
 			fakePlayer.prevPosZ = prevz;
@@ -35,11 +35,11 @@ public class RenderEvent {
 			prevx = x;
 			prevy = y;
 			prevz = z;
-			prevpitch = Minecraft.getMinecraft().thePlayer.rotationPitch;
-			prevyaw = Minecraft.getMinecraft().thePlayer.rotationYaw;
+			prevpitch = Minecraft.getMinecraft().player.rotationPitch;
+			prevyaw = Minecraft.getMinecraft().player.rotationYaw;
 	}
 		else {
-			Minecraft.getMinecraft().setRenderViewEntity(Minecraft.getMinecraft().thePlayer);
+			Minecraft.getMinecraft().setRenderViewEntity(Minecraft.getMinecraft().player);
 		}
 	}
 }

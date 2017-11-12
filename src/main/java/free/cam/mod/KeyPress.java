@@ -37,16 +37,16 @@ public void KeyInputEvent(KeyInputEvent event) {
 		Main.timeout = 10;
 	    if(RenderEvent.enabled)RenderEvent.enabled=false; else RenderEvent.enabled=true;
 	    if(RenderEvent.enabled) {
-	    	RenderEvent.x = (int) Minecraft.getMinecraft().thePlayer.posX;
-	    	RenderEvent.y = (int) Minecraft.getMinecraft().thePlayer.posY;
-	    	RenderEvent.z = (int) Minecraft.getMinecraft().thePlayer.posZ;
+	    	RenderEvent.x = (int) Minecraft.getMinecraft().player.posX;
+	    	RenderEvent.y = (int) Minecraft.getMinecraft().player.posY;
+	    	RenderEvent.z = (int) Minecraft.getMinecraft().player.posZ;
 	    	}
 	}
 	if(Main.timeout == 0 && GameSettings.isKeyDown(reset) && RenderEvent.enabled) {
 		Main.timeout = 10;
-	    	RenderEvent.x = (int) Minecraft.getMinecraft().thePlayer.posX;
-	    	RenderEvent.y = (int) Minecraft.getMinecraft().thePlayer.posY;
-	    	RenderEvent.z = (int) Minecraft.getMinecraft().thePlayer.posZ;
+	    	RenderEvent.x = (int) Minecraft.getMinecraft().player.posX;
+	    	RenderEvent.y = (int) Minecraft.getMinecraft().player.posY;
+	    	RenderEvent.z = (int) Minecraft.getMinecraft().player.posZ;
 	}
 	if(Main.timeout == 0 && GameSettings.isKeyDown(yt) && RenderEvent.enabled) {
 		Main.timeout = 2;
